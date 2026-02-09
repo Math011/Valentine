@@ -2,6 +2,19 @@
 const yesBtn = document.getElementById("yesBtn");
 const questionText = document.getElementById("questionText");
 const buttons = document.getElementById("buttons");
+const music = new Audio("src/ballade.mp3");
+
+music.loop = true;
+music.volume = 0.4;
+
+let musicStarted = false;
+
+function startMusic() {
+  if (!musicStarted) {
+    music.play();
+    musicStarted = true;
+  }
+}
 
 // ===== CONFETTIS =====
 function launchConfetti() {
@@ -27,21 +40,35 @@ function launchConfetti() {
 
 // ===== CLIC SUR YES =====
 yesBtn.addEventListener("click", () => {
+  startMusic();
   // lancer les confettis
   launchConfetti();
 
   // changer le texte de la question
-  questionText.textContent = "I wish us a happy Valentine's day on this 14 februaary 2026 💕";
+  questionText.textContent = "I wish us a happy Valentine's day on this 14 february 2026 💕";
 
   // remplacer les boutons par le message final + cœurs
   buttons.innerHTML = `
     <div class="final-message" style="position: relative; margin-top: 2rem;">
   
       <p style="font-size: 1.5rem;">
-        Let's make the most of our meal in the Näsinneula tower 🍴
+        Let's enjoy our meal in the Näsinneula tower 🍴
         <br>
-        A gift will be waiting for you when you return home 🎁
+        A gift will be waiting for you when you return home after the restaurant 🎁
       </p>
+
+      <div class="heartbeat" id="heartBtn">❤️</div>
     </div>
   `;
+
+   const heartBtn = document.getElementById("heartBtn");
+
+  heartBtn.addEventListener("click", () => {
+    launchConfetti();
+  });
+
+  
+
 });
+
+
