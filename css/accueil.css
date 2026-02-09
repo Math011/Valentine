@@ -15,7 +15,7 @@ body{
 /* Partie avec la question */
 
 #question{
-    font-size: 25px;
+    font-size: 20px;
     text-align: center; 
     color: white
 }
@@ -69,5 +69,20 @@ body{
 
 .btn-no[disabled] {
   opacity: 0.5;
+}
+
+.confetti {
+  position: fixed;
+  top: -10px;
+  font-size: 1.5rem;
+  animation: fall 2.5s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 
