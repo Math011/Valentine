@@ -1,0 +1,73 @@
+
+body{
+    background: linear-gradient(135deg, #B11226, #F6C1CC);
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+#main-container{
+    height: 98vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Partie avec la question */
+
+#question{
+    font-size: 25px;
+    text-align: center; 
+    color: white
+}
+
+
+/* Les boutons */
+
+
+#buttons {
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn {
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: transform 0.25s ease;
+}
+
+.btn-yes {
+  background: linear-gradient(135deg, #FF4D6D, #FF8FA3);
+  color: white;
+  z-index: 1;
+}
+
+.btn-yes:hover {
+  transform: scale(1.15);
+}
+
+.btn-yes:active {
+  transform: scale(0.95);
+}
+
+.btn-no {
+  position: relative;
+  right: 0; /* position initiale */
+  background: linear-gradient(135deg, #FF4D6D, #FF8FA3);
+  color: white;
+  margin-left: 30px;
+  box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
+}
+
+.btn-no:hover {
+  background-color: rgba(255, 77, 109, 0.1);
+  transform: scale(1.03);
+}
+
+.btn-no[disabled] {
+  opacity: 0.5;
+}
+
