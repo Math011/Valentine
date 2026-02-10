@@ -10,6 +10,8 @@ const messages = [
 let hoverCount = 0;
 let locked = false;
 
+
+
 noBtn.addEventListener("mouseover", () => {
     if (locked) return;
 

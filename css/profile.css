@@ -1,0 +1,117 @@
+body{
+    background: linear-gradient(135deg, #B11226, #F6C1CC);
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+/* Container principal */
+#profile-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  min-height: 97.8vh;
+}
+
+/* === CARROUSEL === */
+.carousel {
+  position: relative;
+  width: 460px;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-track img {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* Boutons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  font-size: 2rem;
+  color: white;
+  padding: 0 12px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+
+/* === CARTE TEXTE === */
+.profile-card {
+  max-width: 420px;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  color: white;
+}
+
+.profile-card p {
+    font-size: 18px
+}
+
+.emoji {
+  font-family: 
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Noto Color Emoji",
+    sans-serif;
+}
+
+
+.discover-link a {
+  color: white; /* rose plus visible */
+  font-weight: 600;
+  text-decoration: none;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.35);
+  transition: all 0.3s ease;
+}
+
+.discover-link a:hover {
+  color: #FF4D6D;
+}
+
+
+@media (max-width: 1080px) {
+  .profile-card p{
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  #profile-container {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 6rem 2rem 2rem;
+  }
+
+  .carousel {
+    width: 280px;
+    height: 360px;
+  }
+
+  .carousel-track img {
+    width: 280px;
+    height: 360px;
+  }
+}
