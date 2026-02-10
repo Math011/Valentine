@@ -29,6 +29,7 @@ if (noBtn) {
     if (index === 3) {
       noBtn.style.transform = "translate(0, 0)";
       noBtn.style.cursor = "not-allowed";
+      noBtn.classList.add("disabled");
       locked = true;
     }
 
