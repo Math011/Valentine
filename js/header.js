@@ -1,10 +1,15 @@
 const menuLinks = document.querySelectorAll(".menu");
-const currentPath = window.location.pathname;
+
+// nom du fichier courant (ex: index.html ou profile.html)
+const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
 menuLinks.forEach(link => {
-  const linkPath = link.getAttribute("href");
+  const linkHref = link.getAttribute("href");
 
-  if (currentPath === linkPath) {
+  // récupérer le nom du fichier du lien
+  const linkPage = linkHref.split("/").pop();
+
+  if (linkPage === currentPage) {
     link.classList.add("active");
   }
 });
