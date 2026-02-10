@@ -15,7 +15,7 @@ body::after {
 
 
 #main-container{
-    height: 98vh;
+    height: 97.8vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,5 +136,18 @@ h1 {
   100% {
     transform: scale(1);
   }
+}
+
+
+@media (max-width: 1020px) {
+
+  #questionText{
+    font-size: 20px
+  }
+
+  #buttons p{
+    font-size: 20px!important;
+  }
+  
 }
 
