@@ -8,40 +8,41 @@ if (noBtn) {
     "This button is disabled 🚫"
   ];
 
-  let hoverCount = 0;
+  let count = 0;
   let locked = false;
 
   const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-  const handleNoInteraction = () => {
+  const handleNo = () => {
     if (locked) return;
 
-    noBtn.textContent = messages[hoverCount];
+    noBtn.textContent = messages[count];
 
-    if (hoverCount < 3) {
-      // déplacement PLUS LÉGER sur mobile
-      const maxX = isMobile ? 220 : 110;
-      const maxY = isMobile ? 400 : 200;
-
-      const x = Math.random() * (maxX * 2) - maxX;
-      const y = Math.random() * (maxY * 2) - maxY;
-
+    if (!isMobile && count < 3) {
+      // 🖱️ Desktop → le bouton fuit
+      const x = Math.random() * 220 - 110;
+      const y = Math.random() * 400 - 200;
       noBtn.style.transform = `translate(${x}px, ${y}px)`;
-    } else {
+    }
+
+    if (count === 3) {
       noBtn.style.transform = "translate(0, 0)";
-      noBtn.style.cursor = "not-allowed";
       noBtn.disabled = true;
+      noBtn.style.cursor = "not-allowed";
       locked = true;
     }
 
-    hoverCount++;
+    count++;
   };
 
   if (isMobile) {
-    // 📱 Mobile → tap
-    noBtn.addEventListener("click", handleNoInteraction);
+    // 📱 Mobile → TAP UNIQUEMENT
+    noBtn.addEventListener("touchstart", (e) => {
+      e.preventDefault(); // 🔑 empêche le blocage
+      handleNo();
+    });
   } else {
     // 🖱️ Desktop → hover
-    noBtn.addEventListener("mouseover", handleNoInteraction);
+    noBtn.addEventListener("mouseover", handleNo);
   }
 }
