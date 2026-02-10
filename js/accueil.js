@@ -8,41 +8,32 @@ if (noBtn) {
     "This button is disabled 🚫"
   ];
 
-  let count = 0;
+  let index = 0;
   let locked = false;
 
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  const handleNo = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
 
-  const handleNo = () => {
     if (locked) return;
 
-    noBtn.textContent = messages[count];
+    noBtn.textContent = messages[index];
 
-    if (!isMobile && count < 3) {
-      // 🖱️ Desktop → le bouton fuit
+    // déplacement UNIQUEMENT desktop
+    if (window.matchMedia("(hover: hover)").matches && index < 3) {
       const x = Math.random() * 220 - 110;
-      const y = Math.random() * 400 - 200;
+      const y = Math.random() * 300 - 150;
       noBtn.style.transform = `translate(${x}px, ${y}px)`;
     }
 
-    if (count === 3) {
+    if (index === 3) {
       noBtn.style.transform = "translate(0, 0)";
-      noBtn.disabled = true;
       noBtn.style.cursor = "not-allowed";
       locked = true;
     }
 
-    count++;
+    index++;
   };
 
-  if (isMobile) {
-    // 📱 Mobile → TAP UNIQUEMENT
-    noBtn.addEventListener("touchstart", (e) => {
-      e.preventDefault(); // 🔑 empêche le blocage
-      handleNo();
-    });
-  } else {
-    // 🖱️ Desktop → hover
-    noBtn.addEventListener("mouseover", handleNo);
-  }
+  noBtn.addEventListener("pointerdown", handleNo);
 }
